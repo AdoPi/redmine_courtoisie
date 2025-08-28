@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const createBtn = document.querySelector("input[type='submit'][name='commit'][value='Create']");
-  const genBtn = document.querySelector("input[type='submit'][name='commit'][value='Gen ✨']");
+  const allSubmitButtons = Array.from(document.querySelectorAll("input[type='submit'][name='commit']"));
+  const genBtn = allSubmitButtons.find(btn => btn.value === "Gen ✨");
 
-  if (createBtn && genBtn) {
-    genBtn.style.marginRight = "5px"; 
-    createBtn.parentNode.insertBefore(genBtn, createBtn);
+  const firstOtherBtn = allSubmitButtons.find(btn => btn !== genBtn);
+
+  if (genBtn && firstOtherBtn) {
+    genBtn.style.marginRight = "5px";
+    firstOtherBtn.parentNode.insertBefore(genBtn, firstOtherBtn);
   }
 });
