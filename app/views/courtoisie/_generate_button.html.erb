@@ -1,0 +1,6 @@
+<%= hidden_field_tag 'courtoisie_generate', '0', id: 'courtoisie_generate' %>
+
+<%= submit_tag "Gen ✨",
+      name: 'commit',
+      class: 'btn btn-primary',
+      onclick: "document.getElementById('courtoisie_generate').value = '1';" %>
