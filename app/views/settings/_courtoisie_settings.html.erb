@@ -1,0 +1,15 @@
+<fieldset class="box tabular">
+  <p>
+    <label for="members_to_courtesy">User IDs ( comma separated ) :</label><br>
+    <%= text_field_tag 'settings[members_to_courtesy]',
+      Setting.plugin_redmine_courtoisie['members_to_courtesy'],
+      size: 60 %>
+  </p>
+
+  <p>
+    <label for="gemini_api_key">Clé API Gemini :</label><br>
+    <%= text_field_tag 'settings[gemini_api_key]',
+      Setting.plugin_redmine_courtoisie['gemini_api_key'],
+      size: 60 %>
+  </p>
+</fieldset>

@@ -1,6 +1,13 @@
 <%= hidden_field_tag 'courtoisie_generate', '0', id: 'courtoisie_generate' %>
 
-<%= submit_tag "Gen ✨",
-      name: 'commit',
-      class: 'btn btn-primary',
-      onclick: "document.getElementById('courtoisie_generate').value = '1';" %>
+<% allowed_ids = (Setting.plugin_redmine_courtoisie['members_to_courtesy'] || '')
+                   .split(',')
+                   .map(&:strip)
+                   .map(&:to_i) %>
+
+<% if allowed_ids.include?(User.current.id) %>
+  <%= submit_tag "Gen ✨",
+        name: 'commit',
+      #  class: 'btn btn-primary',
+        onclick: "document.getElementById('courtoisie_generate').value = '1';" %>
+<% end %>
