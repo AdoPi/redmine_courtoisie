@@ -5,7 +5,7 @@
                    .map(&:strip)
                    .map(&:to_i) %>
 
-<% if allowed_ids.include?(User.current.id) %>
+<% if allowed_ids.include?(User.current.id) || Setting.plugin_redmine_courtoisie['members_to_courtesy'].strip.to_i == 0 %>
   <%= submit_tag "Gen ✨",
         name: 'commit',
       #  class: 'btn btn-primary',

@@ -8,7 +8,7 @@ Redmine::Plugin.register :redmine_courtoisie do
   description 'Rewrites issue titles and descriptions to make them more polite'
   version '0.0.1'
   settings partial: 'settings/courtoisie_settings', default: {
-    'members_to_courtesy' => [], # ids
+    'members_to_courtesy' => ['0'], # ids, 0 means every users
     'gemini_api_key' => 'TODO',
     'model' => 'gemini-2.0-flash',
     'max_chars' => 3000

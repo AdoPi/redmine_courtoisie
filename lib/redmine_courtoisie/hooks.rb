@@ -27,7 +27,7 @@ module RedmineCourtoisie
         .map(&:strip)
         .map(&:to_i) 
         
-        if members.include?(user_id)
+        if members.include?(user_id) || Setting.plugin_redmine_courtoisie['members_to_courtesy'].strip.to_i == 0
           api_key = Setting.plugin_redmine_courtoisie['gemini_api_key']
           model = Setting.plugin_redmine_courtoisie['model']
           
